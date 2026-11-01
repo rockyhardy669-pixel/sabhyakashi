@@ -122,7 +122,7 @@
         </div>
         <button class="btn" type="button" data-add="${p.id}">Add to bag</button>
         <a class="btn btn-ghost" href="https://wa.me/${whatsapp()}?text=${encodeURIComponent("I would like to order " + p.name + " from Sabhyakashi.")}">Order on WhatsApp</a>
-        <p class="note">This bag is a local preview. On Shopify, checkout and inventory will run from the merchant admin.</p>
+        <p class="note">Sample listing. This catalogue does not accept online payments; confirm product details and availability before purchase.</p>
       </div>`;
   }
 
