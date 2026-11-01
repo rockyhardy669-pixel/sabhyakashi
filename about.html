@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Weave · Sabhyakashi</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p class="topbar">Handwoven in Kashi · Ships across India</p>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="index.html">Sabhyakashi<span>Traditional Banarasi Sarees</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Sarees</a>
+        <a class="is-active" href="about.html">The Weave</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-btn" type="button">Menu</button>
+        <button class="cart-btn" type="button" data-open-cart>Bag <span class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section story">
+    <img src="images/zari-detail.jpg" alt="Handloom gold zari on silk">
+    <div>
+      <p class="eyebrow">Sabhyakashi</p>
+      <h1>A house for Banarasi cloth.</h1>
+      <p>Sabhyakashi is a store of traditional Banarasi sarees — katan, kadhua, jangla, tanchoi, tissue, georgette, and shikargah — made in Varanasi and sold with the names the weavers already use.</p>
+      <p>The city is Kashi. The cloth is silk and zari. We keep that language on the site so a bride, a mother, or a merchant can find the weave they came for, then buy it through a shop that later runs on Shopify: stock, price, and orders in one admin.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>What we mean by traditional</h2>
+    <p>A Banarasi saree is not a print on mill fabric. It is a design tied on the loom: gold or tested zari, a pallu that is a second composition, a blouse piece cut from the same warp. Kadhua takes longer because each motif is built on its own. Jangla covers the field in a garden. Shikargah tells a hunt. Those words stay on our tags.</p>
+    <p>When this site moves to Shopify, the merchant will add real pieces, real metres, and real photos. The pages you see now are the look of the house.</p>
+  </section>
+
+  <footer class="site-footer">
+    <strong>Sabhyakashi</strong>
+    Traditional Banarasi Sarees · Varanasi
+    <a class="merchant-link" href="login.html">Merchant login</a>
+  </footer>
+
+  <div class="drawer" id="cart-drawer">
+    <aside class="drawer-panel">
+      <h2>Your bag</h2>
+      <div id="cart-items"></div>
+      <p>Total <strong id="cart-total">₹0</strong></p>
+      <p class="note">Checkout will run on Shopify when the theme is connected.</p>
+      <button class="btn" type="button" data-close-cart>Close</button>
+    </aside>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

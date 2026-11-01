@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin console · Sabhyakashi</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p class="topbar">Merchant console · signed in as <span id="admin-user">merchant</span></p>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="index.html">Sabhyakashi<span>Admin console</span></a>
+      <nav class="nav">
+        <a href="admin.html" class="is-active">Console</a>
+        <a href="catalog.html">View shop</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" type="button" id="logout-btn">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <p class="eyebrow">House ledger</p>
+    <h1>Admin console</h1>
+    <div class="stats">
+      <article><p class="muted">Live sarees</p><strong id="stat-live">0</strong></article>
+      <article><p class="muted">Hidden / sold out</p><strong id="stat-hidden">0</strong></article>
+      <article><p class="muted">Enquiries</p><strong id="stat-enquiries">0</strong></article>
+      <article><p class="muted">WhatsApp</p><strong id="stat-whatsapp">—</strong></article>
+    </div>
+  </section>
+
+  <section class="section admin-grid">
+    <div>
+      <h2 id="form-title">Add saree</h2>
+      <form class="form" id="product-form">
+        <input type="hidden" id="p-id">
+        <label>Name <input id="p-name" required></label>
+        <label>Weave <input id="p-weave" placeholder="Katan silk" required></label>
+        <label>Colour <input id="p-color" required></label>
+        <label>Price (INR) <input id="p-price" type="number" min="1" required></label>
+        <label>Stock <input id="p-stock" type="number" min="0" required></label>
+        <label>Badge <input id="p-badge" placeholder="Heritage"></label>
+        <label>Photo <select id="p-image"></select></label>
+        <label>Short line <input id="p-blurb"></label>
+        <label>Details <textarea id="p-details" rows="4"></textarea></label>
+        <div class="qty-row">
+          <button class="btn" type="submit">Save saree</button>
+          <button class="btn btn-ghost" type="button" id="reset-form">New</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h2>Shop settings</h2>
+      <form class="form" id="settings-form">
+        <label>WhatsApp number <input id="set-whatsapp" required></label>
+        <label>Login username <input id="set-username" required></label>
+        <label>New password <input id="set-password" type="password" placeholder="Leave blank to keep"></label>
+        <button class="btn" type="submit">Save settings</button>
+        <p id="settings-status" class="muted"></p>
+      </form>
+      <p class="note">Local preview only. Shopify admin takes over payments, GST, and live stock later.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Catalogue</h2>
+      <button class="btn btn-ghost" type="button" id="reset-catalog">Restore original eight</button>
+    </div>
+    <div class="table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Saree</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="product-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Enquiries</h2>
+    <div id="enquiry-list"></div>
+  </section>
+
+  <footer class="site-footer">
+    <strong>Sabhyakashi</strong>
+    Merchant console · Varanasi
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

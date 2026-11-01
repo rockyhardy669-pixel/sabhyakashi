@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merchant login · Sabhyakashi</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+  <p class="topbar">Merchant console · Sabhyakashi</p>
+  <main class="login-card">
+    <a class="wordmark" href="index.html">Sabhyakashi<span>Traditional Banarasi Sarees</span></a>
+    <h1>Merchant login</h1>
+    <p class="muted">Sign in to add sarees, prices, and stock. This local login is for the preview shop. Shopify admin replaces it when the theme is live.</p>
+    <form class="form" id="login-form">
+      <label>Username <input name="username" autocomplete="username" required></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn" type="submit">Enter console</button>
+      <p id="login-error" class="form-error" hidden>Username or password is incorrect.</p>
+    </form>
+    <p class="note"><a href="index.html">Back to the shop</a></p>
+  </main>
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script>
+    const store = window.SABHYA_STORE;
+    if (store.isAuthed()) location.replace("admin.html");
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = e.target.username.value.trim();
+      const pass = e.target.password.value;
+      const error = document.getElementById("login-error");
+      if (store.login(user, pass)) {
+        location.href = "admin.html";
+        return;
+      }
+      error.hidden = false;
+    });
+  </script>
+</body>
+</html>

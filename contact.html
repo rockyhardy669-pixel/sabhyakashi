@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Sabhyakashi</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p class="topbar">Handwoven in Kashi · Ships across India</p>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="index.html">Sabhyakashi<span>Traditional Banarasi Sarees</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Sarees</a>
+        <a href="about.html">The Weave</a>
+        <a class="is-active" href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-btn" type="button">Menu</button>
+        <button class="cart-btn" type="button" data-open-cart>Bag <span class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <p class="eyebrow">Atelier</p>
+    <h1>Write to the shop.</h1>
+    <p>Varanasi, Uttar Pradesh · hello@sabhyakashi.in</p>
+    <p class="note">Replace the WhatsApp number in <code>products.js</code> with the merchant’s real number before launch.</p>
+    <form class="form" id="contact-form">
+      <label>Name <input name="name" required></label>
+      <label>Phone <input name="phone" type="tel" required></label>
+      <label>Message <textarea name="message" rows="5" required placeholder="Weave, colour, occasion…"></textarea></label>
+      <button class="btn" type="submit">Send on WhatsApp</button>
+      <p id="form-status" class="muted"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <strong>Sabhyakashi</strong>
+    Traditional Banarasi Sarees · Varanasi
+    <a class="merchant-link" href="login.html">Merchant login</a>
+  </footer>
+
+  <div class="drawer" id="cart-drawer">
+    <aside class="drawer-panel">
+      <h2>Your bag</h2>
+      <div id="cart-items"></div>
+      <p>Total <strong id="cart-total">₹0</strong></p>
+      <p class="note">Checkout will run on Shopify when the theme is connected.</p>
+      <button class="btn" type="button" data-close-cart>Close</button>
+    </aside>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

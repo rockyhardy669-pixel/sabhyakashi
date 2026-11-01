@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabhyakashi · Traditional Banarasi Sarees</title>
+  <meta name="description" content="Sabhyakashi — traditional Banarasi sarees, handwoven in Kashi.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p class="topbar">Handwoven in Kashi · Ships across India</p>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="index.html">Sabhyakashi<span>Traditional Banarasi Sarees</span></a>
+      <nav class="nav">
+        <a class="is-active" href="index.html">Home</a>
+        <a href="catalog.html">Sarees</a>
+        <a href="about.html">The Weave</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-btn" type="button">Menu</button>
+        <button class="cart-btn" type="button" data-open-cart>Bag <span class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="background-image: url('images/hero.jpg')">
+    <div class="hero-copy">
+      <p class="eyebrow">From the looms of Banaras</p>
+      <h1>Traditional Banarasi sarees, woven for this generation.</h1>
+      <p class="lede">Sabhyakashi brings kadhua, jangla, tanchoi, and katan silk out of the gully and onto a shop you can open from anywhere.</p>
+      <a class="btn" href="catalog.html">Shop the collection</a>
+      <a class="btn btn-ghost" href="about.html">Read the weave</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">This season</p>
+        <h2>Featured sarees</h2>
+      </div>
+      <a href="catalog.html">View all</a>
+    </div>
+    <div class="grid" id="featured-grid"></div>
+  </section>
+
+  <section class="section story">
+    <img src="images/zari-detail.jpg" alt="Gold zari weave on Banarasi silk">
+    <div>
+      <p class="eyebrow">Kashi</p>
+      <h2>Gold on silk, one shuttle at a time.</h2>
+      <p>Banarasi cloth is still made on pit looms: silk warp, zari weft, and a design that may take weeks to climb the pallu. Sabhyakashi works with that tradition — katan for weight, kadhua for motif, jangla for the garden that never repeats the same vine twice.</p>
+      <a class="btn" href="about.html">Our story</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <strong>Sabhyakashi</strong>
+    Traditional Banarasi Sarees · Varanasi
+    <a class="merchant-link" href="login.html">Merchant login</a>
+  </footer>
+
+  <div class="drawer" id="cart-drawer">
+    <aside class="drawer-panel">
+      <h2>Your bag</h2>
+      <div id="cart-items"></div>
+      <p>Total <strong id="cart-total">₹0</strong></p>
+      <p class="note">Checkout will run on Shopify when the theme is connected.</p>
+      <button class="btn" type="button" data-close-cart>Close</button>
+    </aside>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
