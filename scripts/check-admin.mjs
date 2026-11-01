@@ -1,0 +1,18 @@
+import ts from 'typescript';
+import vm from 'node:vm';
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+let identity=null;
+const src=fs.readFileSync(new URL('../lib/admin.ts',import.meta.url),'utf8').replace(/import \{ getChatGPTUser \} from '..\/app\/chatgpt-auth';/, 'const getChatGPTUser = async () => identity();');
+const code=ts.transpileModule(src,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const exports={};vm.runInNewContext(code,{exports,Response,URL,identity:()=>identity});
+const valid={name:'Gulnaar',description:'Gold zari',price:890050,category:'Bridal',image:'/api/images/12345678-abcd.jpg',status:'draft'};
+assert.equal(exports.validate(valid).price,890050);
+for(const patch of [{price:-1},{price:1.25},{price:Infinity},{status:'live'},{category:'Unknown'},{image:'javascript:alert(1)'},{name:''},{description:'x'.repeat(1201)}])assert.throws(()=>exports.validate({...valid,...patch}));
+assert.equal(await exports.isAdmin(),false);
+identity={userId:'other',email:'someone@example.test'};assert.equal(await exports.isAdmin(),false);
+identity={userId:'owner',email:'owner@example.invalid'};assert.equal(await exports.isAdmin(),true);
+assert.equal(await exports.guard(new Request('https://store.test/api/products',{method:'POST',headers:{Origin:'https://evil.test'}})).then(r=>r.status),403);
+assert.equal(await exports.guard(new Request('https://store.test/api/products',{method:'POST'})).then(r=>r.status),403);
+assert.equal(await exports.guard(new Request('https://store.test/api/products',{method:'POST',headers:{Origin:'https://store.test'}})),null);
+console.log('Passed owner authorization, missing identity, CSRF origin, price precision, invalid field and image URL checks.');

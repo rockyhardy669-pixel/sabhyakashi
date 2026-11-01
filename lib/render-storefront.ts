@@ -1,0 +1,9 @@
+import {whatsappWidget,whatsappStyles} from './whatsapp';
+import {storefront} from './storefront';
+import {fontOptions,type SiteSettings,validateSettings} from './site-settings';
+const escapeHtml=(v:string)=>v.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+export function renderStorefront(input:SiteSettings){
+ const s=validateSettings(input),c=s.colors;
+ const style=`<style>:root{--cream:${c.background};--wine:${c.primary};--ink:${c.text};--gold:${c.accent};--muted:${c.muted};--surface:${c.surface};--heading-font:${fontOptions[s.headingFont].css};--body-font:${fontOptions[s.bodyFont].css}}body{font-family:var(--body-font)}h1,h2,.brand,.footer-brand,.product h3,.image-label,.ribbon,.loom{font-family:var(--heading-font)}h1{font-size:clamp(36px,5.2vw,${s.headingSize}px);white-space:pre-line}h2{white-space:pre-line}p,.hero-copy p,.story-copy p,.note p{font-size:${s.bodySize}px;white-space:pre-line}.hero-copy p,.story-copy p,.note p,.sample,.hero-bottom,.product p{color:var(--muted)}.story{background:var(--surface)}.hero-image,.product-picture{background:var(--surface)}.cta{color:var(--cream)}.announcement,.fine,.footer-links,.footer-brand{color:var(--cream)}.text-link,.ribbon{color:var(--accent,var(--gold))}.eyebrow{color:var(--gold)}header,.ribbon{border-color:color-mix(in srgb,var(--gold) 35%,transparent)}.quick{background:var(--cream);color:var(--ink)}.brand small{font-family:var(--body-font)}@media(max-width:800px){h1{font-size:${Math.min(s.headingSize,56)}px}}@media(max-width:480px){h1{font-size:${Math.min(s.headingSize,48)}px}}${whatsappStyles}</style>`;
+ return storefront.replace('</body>',whatsappWidget(s.whatsapp?.number??'',s.texts.brand)+'</body>').replace(/\{\{([a-zA-Z]+)\}\}/g,(_,key)=>key==='themeStyles'?style:escapeHtml(s.texts[key]??''));
+}
